@@ -13,10 +13,10 @@ export default function App() {
     e.preventDefault();
 
     const registered = {
-      fullname: firstName,
-      lastname: lastName,
-      email: email,
-      password: password,
+      firstName,
+      lastName,
+      email,
+      password,
     };
 
     const postData = async () => {
@@ -28,6 +28,7 @@ export default function App() {
     };
 
     postData();
+
     setFirstName('');
     setLastName('');
     setEmail('');
