@@ -1,41 +1,41 @@
-import React from "react";
-import { useState } from "react";
+import React from 'react';
+import { useState } from 'react';
 
-import "./App.css";
-import axios from "axios";
+import './App.css';
+import axios from 'axios';
 export default function App() {
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const onSubmit = (e) => {
     e.preventDefault();
 
     const registered = {
-      fullname: name,
-      lastname: surname,
+      fullname: firstName,
+      lastname: lastName,
       email: email,
       password: password,
     };
     const postData = async () => {
       const response = await axios.post(
-        "http://localhost:4000/app/signup",
+        'http://localhost:4000/app/signup',
         registered
       );
       console.log(response.data);
     };
     postData();
-    setName("");
-    setSurname("");
-    setEmail("");
-    setPassword("");
+    setFirstName('');
+    setLastName('');
+    setEmail('');
+    setPassword('');
   };
   const changeFirstName = (e) => {
-    setName(e.target.value);
+    setFirstName(e.target.value);
   };
   const changeLastName = (e) => {
-    setSurname(e.target.value);
+    setLastName(e.target.value);
   };
   const changeEmail = (e) => {
     setEmail(e.target.value);
@@ -54,7 +54,7 @@ export default function App() {
               type="text"
               name="first-name"
               placeholder="First Name"
-              value={name}
+              value={firstName}
               onChange={changeFirstName}
             />
           </div>
@@ -64,7 +64,7 @@ export default function App() {
               type="text"
               name="last-name"
               placeholder="Last Name"
-              value={surname}
+              value={lastName}
               onChange={changeLastName}
             />
           </div>
