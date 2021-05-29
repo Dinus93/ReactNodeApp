@@ -3,11 +3,11 @@ const router = express.Router();
 const signUpModelCopy = require('../models/SignUpModels');
 
 router.post('/signup', (request, response) => {
-  const { firstName, surName, email, password } = request.body;
+  const { firstName, lastName, email, password } = request.body;
 
   const signedUpUser = new signUpModelCopy({
     firstName,
-    surName,
+    lastName,
     email,
     password,
   });
