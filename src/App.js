@@ -9,6 +9,8 @@ export default function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const onChangeField = (setField) => (e) => setField(e.target.value);
+
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -35,22 +37,6 @@ export default function App() {
     setPassword('');
   };
 
-  const changeFirstName = (e) => {
-    setFirstName(e.target.value);
-  };
-
-  const changeLastName = (e) => {
-    setLastName(e.target.value);
-  };
-
-  const changeEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const changePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
   return (
     <div className="App">
       <div className="ui container">
@@ -62,7 +48,7 @@ export default function App() {
               name="first-name"
               placeholder="First Name"
               value={firstName}
-              onChange={changeFirstName}
+              onChange={onChangeField(setFirstName)}
             />
           </div>
           <div className="field">
@@ -72,7 +58,7 @@ export default function App() {
               name="last-name"
               placeholder="Last Name"
               value={lastName}
-              onChange={changeLastName}
+              onChange={onChangeField(setLastName)}
             />
           </div>
           <div className="field">
@@ -83,7 +69,7 @@ export default function App() {
                 name="last-name"
                 placeholder="Last Name"
                 value={email}
-                onChange={changeEmail}
+                onChange={onChangeField(setEmail)}
               />
             </div>
             <div className="field">
@@ -93,7 +79,7 @@ export default function App() {
                 name="last-name"
                 placeholder="Last Name"
                 value={password}
-                onChange={changePassword}
+                onChange={onChangeField(setPassword)}
               />
             </div>
           </div>
