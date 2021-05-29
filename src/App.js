@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
-
 import './App.css';
 import axios from 'axios';
+
 export default function App() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -18,6 +18,7 @@ export default function App() {
       email: email,
       password: password,
     };
+
     const postData = async () => {
       const response = await axios.post(
         'http://localhost:4000/app/signup',
@@ -25,21 +26,26 @@ export default function App() {
       );
       console.log(response.data);
     };
+
     postData();
     setFirstName('');
     setLastName('');
     setEmail('');
     setPassword('');
   };
+
   const changeFirstName = (e) => {
     setFirstName(e.target.value);
   };
+
   const changeLastName = (e) => {
     setLastName(e.target.value);
   };
+
   const changeEmail = (e) => {
     setEmail(e.target.value);
   };
+
   const changePassword = (e) => {
     setPassword(e.target.value);
   };
