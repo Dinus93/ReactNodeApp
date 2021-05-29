@@ -12,7 +12,10 @@ router.post('/signup', (request, response) => {
     password,
   });
 
-  signedUpUser.save().then(response.json).catch(response.json);
+  signedUpUser
+    .save()
+    .then((data) => response.json(data))
+    .catch((err) => response.json(err));
 });
 
 module.exports = router;
